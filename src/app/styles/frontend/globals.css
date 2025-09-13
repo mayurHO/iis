@@ -1,0 +1,183 @@
+
+@font-face {
+  font-family: 'AirbnbCereal';
+  src: url('/fonts/AirbnbCereal_W_Rg.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AirbnbCereal';
+  src: url('/fonts/AirbnbCereal_W_Md.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AirbnbCereal';
+  src: url('/fonts/AirbnbCereal_W_Sb.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'AirbnbCereal';
+  src: url('/fonts/AirbnbCereal_W_Bd.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+    overflow-y: auto !important;
+}
+
+:root {
+    --bg-btn-color: #2F357F;
+    --heading-color: #151515;
+    --small-heading-color: #037EC4;
+    --white-color: #fff;
+}
+
+.side-space {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.t-space {
+    padding-top: 101px;
+}
+
+.b-space {
+    padding-bottom: 101px;
+}
+
+
+h6.blue-heading {
+    font-family: 'AirbnbCereal_W_Bk' , sans-serif;;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #037EC4;
+}
+h1 {
+  font-family: 'AirbnbCereal_W_Md', sans-serif;
+  font-weight: 600 !important;
+  font-size: 45px !important;
+  line-height: 60px !important;
+}
+
+h2.section-heading {
+   font-family: 'AirbnbCereal_W_Md', sans-serif;
+    font-weight: 500;
+    font-size: 37px;
+    line-height: 47px;
+    letter-spacing: 0%;
+    color: #151515;
+}
+
+h4.blue-heading {
+    font-family: 'AirbnbCereal_W_Md', sans-serif;
+    font-weight: 500;
+    font-size: 27px;
+    line-height: 37px;
+    letter-spacing: 0%;
+    color: #037EC4;
+}
+
+p {
+    font-family: 'AirbnbCereal_W_Bk', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+    letter-spacing: 0%;
+    color: #151515;
+}
+
+@media(max-width:768px) {
+    .t-space {
+        padding-top: 30px;
+    }
+
+    .b-space {
+        padding-bottom: 30px;
+    }
+
+    h2 {
+        font-size: 28px;
+        line-height: 34px;
+    }
+
+    h4.blue-heading {
+        font-size: 18px;
+        line-height: 24px;
+    }
+}
+
+@media(min-width:769px) and (max-width:991px) {
+    .t-space {
+        padding-top: 50px;
+    }
+
+    .b-space {
+        padding-bottom: 50px;
+    }
+
+}
+
+@media(min-width:992px) and (max-width:1024px) {
+    .t-space {
+        padding-top: 80px;
+    }
+
+    .b-space {
+        padding-bottom: 80px;
+    }
+}
+@media(min-width:769px) and (max-width:1024px) {
+    h2 {
+        font-size: 30px;
+        line-height: 36px;
+    }
+
+    h4.blue-heading {
+        font-size: 22px;
+        line-height: 30px;
+    }
+}
+
+
+
+/* commom button css */
+.common-btn {
+    background: var(--bg-btn-color);
+    color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.common-btn:hover {
+    background: var(--bg-btn-color);
+    color: var(--white-color);
+    flex-direction: row-reverse;
+
+}
+
+.common-btn div {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.common-btn:hover div {
+    float: right;
+    transform: translateX(10px);
+    transition: all 0.5s ease-in-out;
+}
+
+.common-btn:hover .arrow-small-right {
+    rotate: 45deg;
+
+}
