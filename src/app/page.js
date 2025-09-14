@@ -5,12 +5,14 @@ import '@/app/styles/frontend/globals.css';
 
 import CareersBanner from '@/app/frontend/components/careers/banner';
 import JobCategory from '@/app/frontend/components/careers/job-category';
+import HowWork from '@/app/frontend/components/careers/how-work';
 
 export default function Home() {
   return (
     <>
     <CareersBanner />
     <JobCategory />
+    <HowWork />
     </>
   );
 }

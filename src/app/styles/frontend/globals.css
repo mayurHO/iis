@@ -1,21 +1,21 @@
 
 @font-face {
   font-family: 'AirbnbCereal';
-  src: url('/fonts/AirbnbCereal_W_Rg.woff2') format('woff2');
+  src: url('/fonts/AirbnbCereal.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'AirbnbCereal';
-  src: url('/fonts/AirbnbCereal_W_Md.woff2') format('woff2');
+  src: url('/fonts/AirbnbCereal.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'AirbnbCereal';
-  src: url('/fonts/AirbnbCereal_W_Sb.woff2') format('woff2');
+  src: url('/fonts/AirbnbCereal.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
 }
@@ -23,7 +23,7 @@
 
 @font-face {
   font-family: 'AirbnbCereal';
-  src: url('/fonts/AirbnbCereal_W_Bd.woff2') format('woff2');
+  src: url('/fonts/AirbnbCereal.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
 }
@@ -43,7 +43,10 @@ body {
     padding-left: 20px;
     padding-right: 20px;
 }
-
+.tb-space{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
 .t-space {
     padding-top: 101px;
 }
@@ -53,31 +56,31 @@ body {
 }
 
 
-h6.blue-heading {
-    font-family: 'AirbnbCereal_W_Bk' , sans-serif;;
+.subtitle {
+    font-family: 'AirbnbCereal_W_Md' , sans-serif;;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 13px;
     line-height: 100%;
-    letter-spacing: 0%;
-    color: #037EC4;
+    color:#151515;
 }
+
 h1 {
-  font-family: 'AirbnbCereal_W_Md', sans-serif;
+  font-family: 'AirbnbCereal', sans-serif;
   font-weight: 600 !important;
   font-size: 45px !important;
   line-height: 60px !important;
 }
 
 h2.section-heading {
-   font-family: 'AirbnbCereal_W_Md', sans-serif;
-    font-weight: 500;
+   font-family: 'AirbnbCereal', sans-serif;
+    font-weight: 600;
     font-size: 37px;
     line-height: 47px;
     letter-spacing: 0%;
     color: #151515;
 }
 
-h4.blue-heading {
+span.blue-heading {
     font-family: 'AirbnbCereal_W_Md', sans-serif;
     font-weight: 500;
     font-size: 27px;
@@ -90,6 +93,14 @@ p {
     font-family: 'AirbnbCereal_W_Bk', sans-serif;
     font-weight: 400;
     font-size: 15px;
+    line-height: 25px;
+    letter-spacing: 0%;
+    color: #151515;
+}
+h4.heading{
+    font-family: 'AirbnbCereal', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
     line-height: 25px;
     letter-spacing: 0%;
     color: #151515;

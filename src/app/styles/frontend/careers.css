@@ -79,3 +79,39 @@
 .count-img img {
   border-radius: 5px;
 }
+
+/* job section css */
+
+.job-category-container img{
+   background: #f2daee;
+   padding: 10px;
+   border-radius: 5px;
+}
+.work-img-container img{
+  width: 100%;
+  height:auto;
+}
+.process-step{
+  position:relative;
+}
+.process-step::after{
+  content: "";
+  position: absolute;
+  border: 1px dashed #037EC4;
+  height: 60px;
+  left: 17px;
+  top: 45px;
+}
+
+.process-count{
+background-color: rgba(116, 120, 141, .15);
+height: 35px;
+width: 35px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+color: #74788d;
+margin: 0;
+flex-shrink: 0;
+}
