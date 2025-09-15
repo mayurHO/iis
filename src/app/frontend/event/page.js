@@ -4,7 +4,7 @@ const EventPage = () => {
     return (
         <div>
             <h1>abcc</h1>
-            {/* Add your event content here */}
+           <p></p>
         </div>
     );
 };
