@@ -19,11 +19,11 @@ export default function CareersBanner() {
     };
 
     return (
-        <section className="careers-banner w-100">
+        <section className="careers-banner d-flex flex-column flex-md-row w-100">
             <div className="banner-image w-100">
                 <Image
                     className='img-banner'
-                    src="/images/career/banner-img.png"
+                    src="/images/career/banner-img.webp"
                     alt="Careers Banner"
                     width={600}
                     height={400}
