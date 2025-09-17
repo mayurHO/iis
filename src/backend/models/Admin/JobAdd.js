@@ -41,7 +41,7 @@ image: {
   allowNull: true,
 }
 }, {
-  tableName: "jobs", 
+  tableName: "job", 
   timestamps: true, 
 });
 

@@ -4,8 +4,6 @@ class AddJobController {
   async add(req, res) {
     try {
       const { title, location, type, description, experience, startDate, endDate, image } = req.body;
-
-      console.log("job");
       const job = await Job.create({
         title,
         location,
@@ -18,7 +16,7 @@ class AddJobController {
       });
       return res.status(201).json({ success: true, job });
     } catch (err) {
-      return res.status(500).json({ error: "err.message" });
+      return res.status(500).json({ error: err.message });
     }
   }
 }

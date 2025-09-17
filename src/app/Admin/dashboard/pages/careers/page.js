@@ -24,7 +24,6 @@ export default function AddJob() {
   };
 
   const handleSubmit = async (e) => {
-    console.log(formData,"formdata");
     e.preventDefault();
     const formDataObj = new FormData();
     formDataObj.append("title", formData.title);
