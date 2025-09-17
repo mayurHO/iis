@@ -6,6 +6,7 @@ import '@/app/styles/frontend/globals.css';
 import CareersBanner from '@/app/frontend/components/careers/banner';
 import JobCategory from '@/app/frontend/components/careers/job-category';
 import HowWork from '@/app/frontend/components/careers/how-work';
+import CareerInner from './frontend/components/careers/Career-inner';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
     <CareersBanner />
     <JobCategory />
     <HowWork />
+    <CareerInner />
     </>
   );
 }

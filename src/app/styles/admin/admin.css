@@ -1,3 +1,49 @@
-.body{
-    background-color:#FFF;
+.admin-sidebar {
+  width: 20%;
+  background: #111827;
+  color: white;
+  height: 100vh;
+  padding: 20px;
+}
+
+.sidebar-header h2 {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 12px;
+}
+
+.sidebar-nav a {
+  color: #d1d5db;
+  text-decoration: none;
+  display: block;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-nav a:hover {
+  background: #1f2937;
+  color: #fff;
+}
+
+.active-link {
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+}
+
+/* admin pages */
+.main-page{
+    width: 80%;
+    margin-left: auto;
 }

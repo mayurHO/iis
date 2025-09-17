@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function HowWork() {
     return (
-        <div className="how-work side-space  d-flex gap-5 w-100">
-            <div className="process-container w-50">
+        <div className="d-flex flex-column flex-md-row gap-5 w-100 side-space">
+            <div className="process-container w-100 w-md-50">
                 <h2 className="section-heading">How It Work</h2>
                 <p className="mb-4">Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
                 <div className="process-step d-flex pb-3">
@@ -29,7 +29,7 @@ export default function HowWork() {
                     </div>
                 </div>
             </div>
-            <div className="work-img-container w-50">
+            <div className="work-img-container w-100 w-md-50">
                 <Image
                     src="/images/career/process-02.png"
                     alt="Banner Shape"

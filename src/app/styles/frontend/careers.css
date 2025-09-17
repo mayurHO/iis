@@ -19,7 +19,7 @@
 }
 
 .banner-filter {
-  background-color: #40409f;
+  background-color: #8383ff;
   padding: 15px;
   border-radius: 5px;
 }
@@ -80,6 +80,17 @@
   border-radius: 5px;
 }
 
+
+@media (max-width: 768px) {
+  .careers-banner {
+    padding: 20px 20px;
+  }
+  .b-uploadcv {
+    left: 0px;
+}
+}
+
+
 /* job section css */
 
 .job-category-container img{
@@ -90,6 +101,7 @@
 .work-img-container img{
   width: 100%;
   height:auto;
+  max-height: 480px;
 }
 .process-step{
   position:relative;
@@ -114,4 +126,47 @@ border-radius: 50%;
 color: #74788d;
 margin: 0;
 flex-shrink: 0;
+}
+.process-data p{
+  color: #74788d;
+}
+
+
+
+/* Job inner */
+.job-inner {
+  background-color: rgb(248 249 252);
+}
+.job-tabs-row{
+    background: #FFF;
+    padding: 10px;
+    box-shadow: 0px 3px 10px 0px rgba(40, 48, 57, 0.08);
+    border-radius: 8px;
+}
+
+.job-tab {
+    font-family: 'AirbnbCereal_W_Md' , sans-serif;
+    border: none;
+    background: transparent;
+    font-size: 15px;
+    font-weight: 500;
+    color: #151515;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.job-tab.active {
+    background: #037EC4;
+    color: #fff;
+
+}
+.job-item{
+  background: #FFFF;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(40, 48, 57, .08);
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+.job-item h4,.job-item p{
+  margin: 0;
 }
