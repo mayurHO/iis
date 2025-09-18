@@ -1,0 +1,21 @@
+:root{
+    --bg-color:#f2f3f5;
+}
+
+
+/* .Client-section{
+    background-color: var(--bg-color) !important;
+} */
+.Client-section img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+}
+.Client-section .swiper-slide {
+    display: flex;
+    justify-content: center;
+}
+.Client-section .swiper-wrapper{
+    display: flex;
+}

@@ -1,0 +1,108 @@
+.testimonial-section .row {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+}
+.testimonial-section h2{
+    margin: 16px 0px !important;
+}
+.testimonial-section h6{
+     text-transform: uppercase !important;
+    letter-spacing: 4px !important;
+    width: fit-content !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    color: var(--subtitle-color);
+    position: relative;
+    border-bottom: 2px solid var(--subtitle-color);
+}
+.testimonial-card {
+    background-color: var(--bg-color) !important;
+    border-radius: 15px 15px 15px 0px !important;
+    padding: 25px;
+    border-radius: 40px 40px 40px 0;
+    margin: 6px;
+    position: relative;
+    height: 300px;
+    border-bottom: 5px solid var(--blue-color);
+}
+
+.testimonial-section h2 {
+    margin-top: 20px !important;
+}
+
+.testimonial-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.testimonial-author-img {
+    width: 75px;
+    padding: 4px;
+    border-radius: 50px;
+    border: 2px dashed var(--blue-color);
+}
+
+.testimonial-author-img img {
+    border-radius: 50%;
+}
+
+.testimonial-author-info {
+    margin: 15px 0 10px 0;
+}
+
+.testimonial-author-info h4 {
+    font-size: 20px !important;
+    color: var(--blue-color) !important;
+    margin-bottom: 2px;
+}
+
+.testimonial-rate {
+    color: var(--blue-color);
+    margin-bottom: 15px;
+}
+
+.testimonial-card i,
+.testimonial-content h4 {
+    color: var(--blue-color) !important;
+}
+
+.testimonial-section .swiper-pagination-lock {
+    display: block !important;
+}
+
+.testimonial-section .swiper-wrapper {
+    padding-bottom: 80px;
+}
+
+.testimonial-section .swiper-pagination-lock {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.testimonial-section span.swiper-pagination-bullet {
+    margin: 0px 5px !important;
+    height: 10px;
+    width: 10px;
+}
+
+.testimonial-section .swiper-pagination-bullet-active {
+    width: 40px !important;
+    border-radius: 15px;
+    background-color: var(--blue-color) !important;
+}
+
+@media(max-width:1024px) {
+    .testimonial-section .row {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    .testimonial-section .swiper-wrapper {
+        padding-bottom: 60px;
+    }
+}
