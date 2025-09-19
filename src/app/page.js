@@ -8,6 +8,7 @@ import JobCategory from '@/app/frontend/components/careers/job-category';
 import HowWork from '@/app/frontend/components/careers/how-work';
 import CareerInner from './frontend/components/careers/Career-inner';
 
+
 export default function Home() {
   return (
     <>

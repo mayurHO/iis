@@ -80,93 +80,179 @@
   border-radius: 5px;
 }
 
-
 @media (max-width: 768px) {
   .careers-banner {
     padding: 20px 20px;
   }
   .b-uploadcv {
     left: 0px;
+  }
 }
-}
-
 
 /* job section css */
 
-.job-category-container img{
-   background: #f2daee;
-   padding: 10px;
-   border-radius: 5px;
+.job-category-container img {
+  background: #f2daee;
+  padding: 10px;
+  border-radius: 5px;
 }
-.work-img-container img{
+.work-img-container img {
   width: 100%;
-  height:auto;
+  height: auto;
   max-height: 480px;
 }
-.process-step{
-  position:relative;
+.process-step {
+  position: relative;
 }
-.process-step::after{
+.process-step::after {
   content: "";
   position: absolute;
-  border: 1px dashed #037EC4;
+  border: 1px dashed #037ec4;
   height: 60px;
   left: 17px;
   top: 45px;
 }
 
-.process-count{
-background-color: rgba(116, 120, 141, .15);
-height: 35px;
-width: 35px;
-display: flex;
-align-items: center;
-justify-content: center;
-border-radius: 50%;
-color: #74788d;
-margin: 0;
-flex-shrink: 0;
+.process-count {
+  background-color: rgba(116, 120, 141, 0.15);
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #74788d;
+  margin: 0;
+  flex-shrink: 0;
 }
-.process-data p{
+.process-data p {
   color: #74788d;
 }
-
-
 
 /* Job inner */
 .job-inner {
   background-color: rgb(248 249 252);
 }
-.job-tabs-row{
-    background: #FFF;
-    padding: 10px;
-    box-shadow: 0px 3px 10px 0px rgba(40, 48, 57, 0.08);
-    border-radius: 8px;
+.job-tabs-row {
+  background: #fff;
+  padding: 10px;
+  box-shadow: 0px 3px 10px 0px rgba(40, 48, 57, 0.08);
+  border-radius: 8px;
 }
 
 .job-tab {
-    font-family: 'AirbnbCereal_W_Md' , sans-serif;
-    border: none;
-    background: transparent;
-    font-size: 15px;
-    font-weight: 500;
-    color: #151515;
-    padding: 10px 18px;
-    border-radius: 10px;
-    cursor: pointer;
+  font-family: "AirbnbCereal_W_Md", sans-serif;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 500;
+  color: #151515;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 .job-tab.active {
-    background: #037EC4;
-    color: #fff;
-
+  background: #037ec4;
+  color: #fff;
 }
-.job-item{
-  background: #FFFF;
-  padding: 20px;
-  box-shadow: 0 3px 10px rgba(40, 48, 57, .08);
-  margin-bottom: 20px;
+.job-item {
+  background: #ffff;
+  padding: 15px 20px;
+  box-shadow: 0 3px 10px rgba(40, 48, 57, 0.08);
+  margin-bottom: 10px;
   border-radius: 10px;
 }
-.job-item h4,.job-item p{
+.job-item-wrapper {
+  border: 1px solid #eff0f2;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.job-item-wrapper:hover {
+  border: 1px solid #037ec4;
+  box-shadow: 0 3px 10px rgba(40, 48, 57, 0.08);
+  transition: all 0.3s ease-in-out;
+}
+
+.job-item h4,
+.job-item p {
   margin: 0;
+}
+
+.job-item img {
+  border-radius: 10px;
+  margin-left: 50px;
+}
+
+.job-desc {
+  width: 500px;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.job-location {
+  font-weight: 600;
+  color: #272f38;
+}
+.job-location span {
+  font-weight: 500;
+}
+.more-info {
+  cursor: pointer;
+}
+.more-info:hover {
+  color: #766df4;
+}
+.star-icon {
+  font-size: 18px;
+  position: absolute;
+  top: -7px;
+  left: -41px;
+  background: #766df4;
+  height: 50px;
+  transform: rotate(-45deg);
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.star-icon svg {
+  color: #fff;
+  font-size: 22px;
+  margin-top: 7px;
+}
+
+.career-inner .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.career-inner .modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.career-inner .modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
 }

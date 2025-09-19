@@ -1,107 +1,96 @@
 "use client";
-import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+
+import { useEffect, useState } from "react";
+import JobListing from "../../../Components/Listingpage";
+import CareerAdd from "./CareerAdd";
 
 export default function AddJob() {
-  const [formData, setFormData] = useState({
-    title: "",
-    location: "",
-    type: "",
-    description: "",
-    experience: "",
-    startDate: "",
-    endDate: "",
-    image: null, 
-  });
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [editingJob, setEditingJob] = useState(null);
+  const [showAdd, setShowAdd] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    if (files && files.length > 0) {
-      setFormData({ ...formData, [name]: files[0] });
-    } else {
-      setFormData({ ...formData, [name]: value });
+  const tableHeadings = [
+    { key: "id", label: "ID" },
+    { key: "title", label: "Job Title" },
+    { key: "type", label: "Job Type" },
+  ];
+
+  // Fetch jobs
+  const fetchJobs = async () => {
+    setLoading(true);
+    try {
+      const res = await fetch("/Admin/ActionApi/Carrier");
+      const data = await res.json();
+      if (data.success) setJobs(data.jobs);
+    } catch (err) {
+      console.error("Error fetching jobs:", err);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formDataObj = new FormData();
-    formDataObj.append("title", formData.title);
-    formDataObj.append("location", formData.location);
-    formDataObj.append("type", formData.type);
-    formDataObj.append("description", formData.description);
-    formDataObj.append("experience", formData.experience);
-    formDataObj.append("startDate", formData.startDate);
-    formDataObj.append("endDate", formData.endDate);
-    if (formData.image) {
-      formDataObj.append("image", formData.image); // matches useState
-    }
+  useEffect(() => {
+    fetchJobs();
+  }, []);
 
+  // Edit job
+  const handleEdit = (job) => {
+    setEditingJob(job);
+    setShowAdd(true);
+  };
+
+  // Delete job
+  const handleDelete = async (id) => {
+    if (!confirm("Are you sure you want to delete this job?")) return;
     try {
-      const res = await fetch("/Admin/ActionApi/Carrier", {
-        method: "POST",
-        body: formDataObj, // FormData handles file upload automatically
-      });
-
+      const res = await fetch(`/Admin/ActionApi/Carrier/${id}`, { method: "DELETE" });
       const data = await res.json();
       if (res.ok) {
-        alert("Job added successfully!");
+        alert(data.message || "Job deleted successfully!");
+        fetchJobs();
       } else {
-        alert(data.error || "Failed to add job.");
+        alert(data.error || "Failed to delete job.");
       }
     } catch (err) {
-      console.log("Something went wrong: " + err.message);
+      console.error("Delete error:", err);
+      alert("Something went wrong.");
     }
+  };
+
+  // Back to listing
+  const handleBack = () => {
+    setShowAdd(false);
+    setEditingJob(null);
+    fetchJobs(); // refresh list after add/update
   };
 
   return (
-    <div className="container">
-      <h2 className="mb-4">Add Job</h2>
-      <form onSubmit={handleSubmit} className="row g-3">
-        <div className="col-md-6">
-          <label className="form-label">Job Title</label>
-          <input type="text" className="form-control" name="title" onChange={handleChange} />
-        </div>
-
-        <div className="col-md-6">
-          <label className="form-label">Job Location</label>
-          <input type="text" className="form-control" name="location" onChange={handleChange} />
-        </div>
-
-        <div className="col-md-6">
-          <label className="form-label">Job Type</label>
-          <input type="text" className="form-control" name="type" onChange={handleChange} />
-        </div>
-
-        <div className="col-md-6">
-          <label className="form-label">Experience</label>
-          <input type="text" className="form-control" name="experience" onChange={handleChange} />
-        </div>
-
-        <div className="col-12">
-          <label className="form-label">Job Description</label>
-          <textarea className="form-control" rows="3" name="description" onChange={handleChange}></textarea>
-        </div>
-
-        <div className="col-md-6">
-          <label className="form-label">Start Date</label>
-          <input type="date" className="form-control" name="startDate" onChange={handleChange} />
-        </div>
-
-        <div className="col-md-6">
-          <label className="form-label">End Date</label>
-          <input type="date" className="form-control" name="endDate" onChange={handleChange} />
-        </div>
-
-        <div className="col-12">
-          <label className="form-label">Job Image</label>
-          <input type="file" className="form-control" name="image" onChange={handleChange} />
-        </div>
-
-        <div className="col-12">
-          <button type="submit" className="btn btn-primary">Add Job</button>
-        </div>
-      </form>
-    </div>
+    <>
+      {showAdd ? (
+        <CareerAdd job={editingJob} onBack={handleBack} />
+      ) : loading ? (
+        <div>Loading jobs...</div>
+      ) : (
+        <JobListing
+          title="Job Listing"
+          actionButton={
+            <button
+              className="btn btn-primary"
+              onClick={() => {
+                setEditingJob(null);
+                setShowAdd(true);
+              }}
+            >
+              Add Job
+            </button> 
+          }
+          jobs={jobs}
+          headings={tableHeadings}
+          onEdit={handleEdit}
+          onDelete={handleDelete}
+        />
+      )}
+    </>
   );
 }

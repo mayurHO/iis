@@ -1,0 +1,12 @@
+/* Listing page */
+.action-buttons button {
+  height: 31px;
+    width: 30px;
+    background: none;
+}
+.heading-row {
+  background-color: #f3f4f6;
+  text-align: left;
+  padding: 10px;
+  border-bottom: 2px solid #e5e7eb;
+}
