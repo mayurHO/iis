@@ -1,0 +1,156 @@
+.teacher-section{
+    background-color: #f2f3f5;
+}
+.teacher-section h6{
+     text-transform: uppercase !important;
+    letter-spacing: 4px !important;
+    width: fit-content !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: var(--subtitle-color);
+    position: relative;
+    border-bottom: 2px solid var(--subtitle-color);
+}
+
+    .teacher-section  h2{
+    margin: 16px 0px !important;
+}
+.team-item {
+    position: relative;
+    background: white;
+    padding: 15px;
+    margin-bottom: 25px;
+    border-radius: 20px 20px 20px 0;
+    overflow: hidden;
+    box-shadow: 0 0 40px 5px rgb(0 0 0 / 5%);
+     transition:all 0.5s ease-in-out;
+}
+.team-img img {
+    border-radius: 20px 20px 20px 0;
+    width: 100% !important;
+    object-position: top !important;
+    object-fit: cover !important;
+
+}
+
+.team-item:hover .team-social {
+    opacity: 1;
+    right: 30px;
+}
+.team-social {
+    position: absolute;
+    margin-bottom: 10px;
+    text-align: center;
+    top: 50px;
+    right: 0px;
+    gap:5px;
+    bottom: 0;
+    opacity: 0;
+    transition:all 0.5s ease-in-out;
+    flex-direction: column;
+    display: flex;
+}
+.team-social a {
+    display: block;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 10px;
+    border-radius: 15px 15px 15px 0;
+    background: var(--blue-color);
+}
+.team-content {
+    margin-top: 15px;
+    position: relative;
+}
+.team-bio h5 {
+    font-size: 22px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+.team-bio span {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--blue-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.team-social-btn {
+    position: absolute;
+    right: -5px;
+    bottom: 25px;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    padding-left: 12px;
+    border-radius: 15px 15px 0 15px;
+    cursor: pointer;
+    background: var(--blue-color);
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+}
+.team-item:hover .team-social-btn, .team-social a:hover{
+    background-color: var(--subtitle-color);
+}
+.teacher-section .row {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+}
+.teacher-row .teacher-col-1,
+.teacher-row .teacher-col-2,
+.teacher-row .teacher-col-3{
+    padding:0px 20px 0px 0px !important;
+}
+.mobile-teacher-slider{
+    display: none !important;
+}
+.teacher-row{
+    display: flex !important;
+}
+@media(max-width:1024px)
+{
+.teacher-section .row {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.teacher-row .teacher-col-1,
+.teacher-row .teacher-col-2,
+.teacher-row .teacher-col-3{
+    padding:0px 0px 0px 0px !important;
+}
+.mobile-teacher-slider{
+    display: block !important;
+}
+.teacher-row{
+    display: none !important;
+}
+
+.teacher-section .swiper-pagination-lock {
+    display: block !important;
+}
+
+.teacher-section .swiper-wrapper {
+    padding-bottom: 30px;
+}
+
+.teacher-section .swiper-pagination-lock {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.teacher-section span.swiper-pagination-bullet {
+    margin: 0px 5px !important;
+    height: 10px;
+    width: 10px;
+}
+
+.teacher-section .swiper-pagination-bullet-active {
+    width: 40px !important;
+    border-radius: 15px;
+    background-color: var(--blue-color) !important;
+}
+}

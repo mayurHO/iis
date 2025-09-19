@@ -1,0 +1,106 @@
+.counter-section {
+    background-image: url('/images/About/cc.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.counter-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #000000cf;
+    top: 0;
+    left: 0;
+}
+
+.counter-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    position: relative;
+    z-index: 3;
+}
+
+.counter-box .icon {
+    position: relative;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    color: var(--color-white);
+    background: var(--blue-color);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    /* border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; */
+    border-radius: 25px;
+}
+
+.counter-box .icon::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    border: 3px solid #fff;
+    transition: 0.5s ease-in-out;
+    /* border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; */
+    border-radius: 25px;
+    z-index: -1;
+}
+
+.counter-box:hover .icon::before {
+    left: 0;
+    top: 0;
+}
+
+.counter-box img {
+    width: 60px;
+    filter: brightness(0) invert(1);
+}
+
+.counter-box .counter {
+    margin-top: 10px !important;
+    line-height: 1;
+    color: rgb(255, 255, 255) !important;
+    font-size: 50px;
+    font-weight: 600;
+
+}
+
+.counter-box .title {
+    color: rgb(255, 255, 255);
+    font-size: 20px !important;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.counter-box p.title {
+    color: #fff !important;
+}
+
+@media(max-width:767px) {
+    .counter-box img {
+        width: 36px;
+    }
+
+    .counter-box .icon {
+        width: 80px;
+        height: 80px;
+    }
+    .counter-box {
+    margin-top: 32px;
+    }
+    .counter-box .counter{
+     font-size: 40px;
+    }
+}
