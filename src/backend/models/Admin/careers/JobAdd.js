@@ -1,4 +1,3 @@
-// src/backend/models/Job.js
 import { DataTypes } from "sequelize";
 import sequelize from "@/utils/db"; 
 
@@ -36,10 +35,15 @@ const Job = sequelize.define("Job", {
     type: DataTypes.DATEONLY,
     allowNull: true,
   },
-image: {
-  type: DataTypes.STRING,
-  allowNull: true,
-}
+  image: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  status: {
+    type: DataTypes.ENUM("pending", "active"),
+    allowNull: false,
+    defaultValue: "pending",
+  }
 }, {
   tableName: "job", 
   timestamps: true, 

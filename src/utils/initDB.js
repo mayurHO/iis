@@ -1,6 +1,6 @@
 import sequelize from "@/utils/db";
 import User from "../backend/models/Admin/User";
-import Job from "../backend/models/Admin/JobAdd";
+import Job from "../backend/models/Admin/careers/JobAdd";
 import Apply from "../backend/models/Frontend/Apply";
 
 export async function initDB() {

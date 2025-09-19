@@ -1,10 +1,10 @@
-import Job from "../../models/Admin/JobAdd.js";
+import Job from "../../models/Admin/careers/JobAdd";
 
 class AddJobController {
   // ADD
   async add(req, res) {
     try {
-      const { title, location, type, description, experience, startDate, endDate, image } = req.body;
+      const { title, location, type, description, experience, startDate, endDate, image, status } = req.body;
       const job = await Job.create({
         title,
         location,
@@ -13,7 +13,8 @@ class AddJobController {
         experience,
         startDate,
         endDate,
-        image: req.body.image || null,
+        image: image || null,
+        status: status || "pending", // default to pending if not provided
       });
       return res.status(201).json({ success: true, job });
     } catch (err) {
@@ -22,37 +23,37 @@ class AddJobController {
   }
 
   // UPDATE
- async update(req, res) {
-  try {
-    const { id } = req.params; // <-- get id from URL
-    const job = await Job.findByPk(id);
-    if (!job) {
-      return res.status(404).json({ error: "Job not found" });
+  async update(req, res) {
+    try {
+      const { id } = req.params; // get id from URL
+      const job = await Job.findByPk(id);
+      if (!job) {
+        return res.status(404).json({ error: "Job not found" });
+      }
+
+      const { title, location, type, description, experience, startDate, endDate, image, status } = req.body;
+      await job.update({
+        title,
+        location,
+        type,
+        description,
+        experience,
+        startDate,
+        endDate,
+        image: image || job.image, // keep old image if none uploaded
+        status: status || job.status, // keep old status if not provided
+      });
+
+      return res.status(200).json({ success: true, job });
+    } catch (err) {
+      return res.status(500).json({ error: err.message });
     }
-
-    const { title, location, type, description, experience, startDate, endDate, image } = req.body;
-    await job.update({
-      title,
-      location,
-      type,
-      description,
-      experience,
-      startDate,
-      endDate,
-      image: image || job.image, // keep old image if none uploaded
-    });
-
-    return res.status(200).json({ success: true, job });
-  } catch (err) {
-    return res.status(500).json({ error: err.message });
   }
-}
-
 
   // DELETE
   async delete(req, res) {
     try {
-      const { id } = req.params; // expecting id in params
+      const { id } = req.params;
       const job = await Job.findByPk(id);
       if (!job) {
         return res.status(404).json({ error: "Job not found" });
@@ -67,6 +68,7 @@ class AddJobController {
 }
 
 export default new AddJobController();
+
 
 /*------------------------------------------------------------
   ## Fetch all jobs

@@ -12,6 +12,7 @@ export default function CareerAdd({ job, onBack }) {
     startDate: "",
     endDate: "",
     image: null,
+    status: "pending",
   });
 
   useEffect(() => {
@@ -24,7 +25,8 @@ export default function CareerAdd({ job, onBack }) {
         experience: job.experience || "",
         startDate: job.startDate || "",
         endDate: job.endDate || "",
-        image: null, 
+        image: null,
+        status: job.status || "pending",
       });
     }
   }, [job]);
@@ -49,9 +51,9 @@ export default function CareerAdd({ job, onBack }) {
     formDataObj.append("experience", formData.experience);
     formDataObj.append("startDate", formData.startDate);
     formDataObj.append("endDate", formData.endDate);
+    formDataObj.append("status", formData.status);
     if (formData.image) formDataObj.append("image", formData.image);
 
-    // Determine URL and method based on whether editing or adding
     const url = job && job.id ? `/Admin/ActionApi/Carrier/${job.id}` : "/Admin/ActionApi/Carrier";
     const method = job && job.id ? "PUT" : "POST";
 
@@ -60,7 +62,7 @@ export default function CareerAdd({ job, onBack }) {
       const data = await res.json();
       if (res.ok) {
         alert(job ? "Job updated successfully!" : "Job added successfully!");
-        onBack(); // Go back to listing page after success
+        onBack();
       } else {
         alert(data.error || "Failed to save job.");
       }
@@ -72,98 +74,133 @@ export default function CareerAdd({ job, onBack }) {
   return (
     <div className="container">
       <div className="mb-3 d-flex justify-content-between align-items-center"> 
-      <h2 className="mb-4">{job ? "Edit Job" : "Add Job"}</h2>
-      <button type="button" className="btn btn-secondary" onClick={onBack}>Back</button>
+        <h2 className="mb-4">{job ? "Edit Job" : "Add Job"}</h2>
+        <button type="button" className="btn btn-secondary" onClick={onBack}>Back</button>
       </div>
-      <form onSubmit={handleSubmit} className="row g-3">
-        <div className="col-md-6">
-          <label className="form-label">Job Title</label>
-          <input
-            type="text"
-            className="form-control"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-          />
+
+      <div className="d-flex gap-5">
+        {/* Left column: Form + submit */}
+        <div className="form-card flex-grow-1">
+          <form onSubmit={handleSubmit} className="row g-3">
+            <div className="col-md-6">
+              <label className="form-label">Job Title</label>
+              <input
+                type="text"
+                className="form-control"
+                name="title"
+                value={formData.title}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="col-md-6">
+              <label className="form-label">Job Location</label>
+              <input
+                type="text"
+                className="form-control"
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="col-md-6">
+              <label className="form-label">Job Type</label>
+              <input
+                type="text"
+                className="form-control"
+                name="type"
+                value={formData.type}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="col-md-6">
+              <label className="form-label">Experience</label>
+              <input
+                type="text"
+                className="form-control"
+                name="experience"
+                value={formData.experience}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="col-12">
+              <label className="form-label">Job Description</label>
+              <textarea
+                className="form-control"
+                rows="3"
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+
+            <div className="col-md-6">
+              <label className="form-label">Start Date</label>
+              <input
+                type="date"
+                className="form-control"
+                name="startDate"
+                value={formData.startDate}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="col-md-6">
+              <label className="form-label">End Date</label>
+              <input
+                type="date"
+                className="form-control"
+                name="endDate"
+                value={formData.endDate}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="col-12">
+              <label className="form-label">Job Image</label>
+              <input
+                type="file"
+                className="form-control"
+                name="image"
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="col-12 d-flex justify-content-center">
+              <button type="submit" className="btn btn-primary w-auto mx-auto">
+                {job ? "Update Job" : "Add Job"}
+              </button>
+            </div>
+          </form>
         </div>
 
-        <div className="col-md-6">
-          <label className="form-label">Job Location</label>
-          <input
-            type="text"
-            className="form-control"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-          />
-        </div>
+        {/* Right column: Secondary button + Status dropdown */}
+        <div className="button-container flex-shrink-0">
+          <div className="col-md-12 mb-3">
+            <label className="form-label">Status</label>
+            <select
+              className="form-select"
+              name="status"
+              value={formData.status}
+              onChange={handleChange}
+            >
+              <option value="pending">Pending</option>
+              <option value="active">Active</option>
+            </select>
+          </div>
 
-        <div className="col-md-6">
-          <label className="form-label">Job Type</label>
-          <input
-            type="text"
-            className="form-control"
-            name="type"
-            value={formData.type}
-            onChange={handleChange}
-          />
+          <button
+            type="button"
+            className="btn btn-primary w-auto"
+            onClick={handleSubmit}
+          >
+            {job ? "Update Job" : "Add Job"}
+          </button>
         </div>
-
-        <div className="col-md-6">
-          <label className="form-label">Experience</label>
-          <input
-            type="text"
-            className="form-control"
-            name="experience"
-            value={formData.experience}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="col-12">
-          <label className="form-label">Job Description</label>
-          <textarea
-            className="form-control"
-            rows="3"
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-          ></textarea>
-        </div>
-
-        <div className="col-md-6">
-          <label className="form-label">Start Date</label>
-          <input
-            type="date"
-            className="form-control"
-            name="startDate"
-            value={formData.startDate}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="col-md-6">
-          <label className="form-label">End Date</label>
-          <input
-            type="date"
-            className="form-control"
-            name="endDate"
-            value={formData.endDate}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="col-12">
-          <label className="form-label">Job Image</label>
-          <input
-            type="file"
-            className="form-control"
-            name="image"
-            onChange={handleChange}
-          />
-        </div>
-          <button type="submit" className="btn btn-primary w-auto mx-auto">{job ? "Update Job" : "Add Job"}</button>
-      </form>
+      </div>
     </div>
   );
 }

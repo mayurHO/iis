@@ -1,4 +1,4 @@
-import Job from "../../models/Admin/JobAdd"; 
+import Job from "../../models/Admin/careers/JobAdd";
 import Apply from "../../models/Frontend/Apply";
 
 /*------------------------------------------------------------
@@ -13,7 +13,7 @@ export async function getAll(req) {
 
     const query = {};
     
-    if (type && type !== "all") {
+    if (type && type !== "all") { 
       const typeMap = {
         "Full Time": "Full Time",
         "Part Time": "Part Time",
