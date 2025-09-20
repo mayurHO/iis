@@ -54,7 +54,7 @@ export default function CareerAdd({ job, onBack }) {
     formDataObj.append("status", formData.status);
     if (formData.image) formDataObj.append("image", formData.image);
 
-    const url = job && job.id ? `/Admin/ActionApi/Carrier/${job.id}` : "/Admin/ActionApi/Carrier";
+    const url = job && job.id ? `/admin/ActionApi/Carrier/${job.id}` : "/admin/ActionApi/Carrier";
     const method = job && job.id ? "PUT" : "POST";
 
     try {

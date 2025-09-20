@@ -9,7 +9,7 @@ export async function initDB() {
     console.log("Database connected!");
 
     // This will create or alter tables based on models
-    await User.sync({ alter: true });
+    // await User.sync({ alter: true });
     await Job.sync({ alter: true });
     await Apply.sync({ alter: true });
     console.log("Job table created/updated successfully!");

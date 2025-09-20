@@ -1,9 +1,7 @@
 import LoginController from "@/backend/controllers/Admin/login";
-import { initDB } from "@/utils/initDB";
 
 export async function POST(req) {
   try {
-    await initDB();
     const body = await req.json();
 
     const mockRes = {

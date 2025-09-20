@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import JobListing from "../../../Components/Listingpage";
-import CareerAdd from "./CareerAdd";
+import JobListing from "../../../Components/common/Listingpage";
+import CareerAdd from "../../../Components/careers/CareerAdd";
 
 export default function AddJob() {
   const [jobs, setJobs] = useState([]);
@@ -20,7 +20,7 @@ export default function AddJob() {
   const fetchJobs = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/Admin/ActionApi/Carrier");
+      const res = await fetch("/admin/ActionApi/Carrier");
       const data = await res.json();
       if (data.success) setJobs(data.jobs);
     } catch (err) {
@@ -34,6 +34,11 @@ export default function AddJob() {
     fetchJobs();
   }, []);
 
+  // View job
+  const handleView = (job) => {
+    alert(`Viewing job: ${job.title}`);
+  };
+
   // Edit job
   const handleEdit = (job) => {
     setEditingJob(job);
@@ -44,7 +49,7 @@ export default function AddJob() {
   const handleDelete = async (id) => {
     if (!confirm("Are you sure you want to delete this job?")) return;
     try {
-      const res = await fetch(`/Admin/ActionApi/Carrier/${id}`, { method: "DELETE" });
+      const res = await fetch(`/admin/ActionApi/Carrier/${id}`, { method: "DELETE" });
       const data = await res.json();
       if (res.ok) {
         alert(data.message || "Job deleted successfully!");
@@ -83,10 +88,11 @@ export default function AddJob() {
               }}
             >
               Add Job
-            </button> 
+            </button>
           }
           jobs={jobs}
           headings={tableHeadings}
+          onView={handleView}
           onEdit={handleEdit}
           onDelete={handleDelete}
         />

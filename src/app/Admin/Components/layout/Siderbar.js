@@ -9,7 +9,7 @@ const Sidebar = () => {
   const menuItems = [
     { name: "Dashboard", path: "/admin/dashboard" },
     { name: "Users", path: "/admin/users" },
-    { name: "Career", path: "/Admin/dashboard/pages/careers" },
+    { name: "Career", path: "/admin/dashboard/pages/careers" },
     { name: "Event", path: "/admin/event" },
     { name: "Settings", path: "/admin/settings" },
     { name: "Logout", path: "/admin/logout" },

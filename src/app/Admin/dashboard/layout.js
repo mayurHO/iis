@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Header from "@/app/Admin/Components/AdminHeader";
-import Sidebar from "@/app/Admin/Components/Siderbar";
+import Header from "@/app/admin/Components/layout/AdminHeader";
+import Sidebar from "@/app/admin/Components/layout/Siderbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/app/styles/admin/admin.css";
 
