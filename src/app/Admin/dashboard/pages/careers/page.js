@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import JobListing from "../../../Components/common/Listingpage";
 import CareerAdd from "../../../Components/careers/CareerAdd";
 
+
 export default function AddJob() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -14,6 +15,7 @@ export default function AddJob() {
     { key: "id", label: "ID" },
     { key: "title", label: "Job Title" },
     { key: "type", label: "Job Type" },
+    { key: "description", label: "Description" },
   ];
 
   // Fetch jobs
@@ -67,7 +69,8 @@ export default function AddJob() {
   const handleBack = () => {
     setShowAdd(false);
     setEditingJob(null);
-    fetchJobs(); // refresh list after add/update
+    fetchJobs(); 
+
   };
 
   return (
@@ -78,16 +81,16 @@ export default function AddJob() {
         <div>Loading jobs...</div>
       ) : (
         <JobListing
-          title="Job Listing"
+          title="All Job Data"
           actionButton={
             <button
-              className="btn btn-primary"
+              className="btn btn-warning flex-shrink-0"
               onClick={() => {
                 setEditingJob(null);
                 setShowAdd(true);
               }}
             >
-              Add Job
+              Add Job +
             </button>
           }
           jobs={jobs}

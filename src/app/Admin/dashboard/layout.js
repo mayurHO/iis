@@ -6,11 +6,13 @@ import Header from "@/app/admin/Components/layout/AdminHeader";
 import Sidebar from "@/app/admin/Components/layout/Siderbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/app/styles/admin/admin.css";
+import "@/app/styles/admin/global.css";
 
 export default function AdminLayout({ children }) {
   const router = useRouter();
   const [authChecked, setAuthChecked] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [selectedMenu, setSelectedMenu] = useState("Dashboard Home");
 
   useEffect(() => {
     const isAdmin = localStorage.getItem("isAdmin");
@@ -29,8 +31,11 @@ export default function AdminLayout({ children }) {
     <div className="min-vh-100">
       <Header />
       <div className="flex-grow-1 d-flex">
-        <Sidebar className="col-3" />
-        <main className="main-page p-5">{children}</main>
+      <Sidebar className="col-3" onSelectMenu={setSelectedMenu} />
+        <main className="main-page">
+        <h2 className="mb-1 hirachy-tag">{selectedMenu}</h2>
+          {children}
+          </main>
       </div>
     </div>
   );
