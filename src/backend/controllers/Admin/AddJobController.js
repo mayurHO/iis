@@ -1,4 +1,5 @@
 import Job from "../../models/Admin/careers/JobAdd";
+import Apply from "../../models/Frontend/Apply";
 
 class AddJobController {
   // ADD
@@ -86,5 +87,21 @@ export async function getAll(req) {
   } catch (err) {
     console.error("Error fetching jobs:", err);
     return new Response(JSON.stringify({ error: err.message }), { status: 500 });
+  }
+}
+
+/*------------------------------------------------------------
+  ## Fetch all Applied Job
+------------------------------------------------------------*/
+
+export async function getAppliedJob() {
+  try {
+    const appliedJobs = await Apply.findAll({
+      order: [["createdAt", "DESC"]],
+    });
+    return appliedJobs;
+  } catch (err) {
+    console.error("Error fetching applied jobs:", err);
+    throw new Error(err.message);
   }
 }

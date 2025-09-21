@@ -20,7 +20,7 @@ export default function AddJob() {
   const fetchJobs = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/admin/ActionApi/Carrier");
+      const res = await fetch("/admin/ActionApi/Carrier/careers");
       const data = await res.json();
       if (data.success) setJobs(data.jobs);
     } catch (err) {

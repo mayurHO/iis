@@ -1,15 +1,22 @@
 .admin-sidebar {
-  width: 20%;
-  background: #111827;
+  width: 18%;
+  background: #042954;
   color: white;
   height: 100vh;
+}
+
+.siderbar-menu {
   padding: 20px;
 }
 
-.sidebar-header h2 {
-  margin-bottom: 20px;
-  font-size: 18px;
-  font-weight: bold;
+.sidebar-header {
+  background: linear-gradient(to right, #ff9d01, #ffaa01);
+  height: 70px;
+}
+
+.sidebar-header img {
+  width: 62% !important;
+  margin: 15px 0 20px 20px;
 }
 
 .sidebar-nav ul {
@@ -18,32 +25,117 @@
   margin: 0;
 }
 
-.sidebar-nav li {
-  margin-bottom: 12px;
+.sidebar-nav .label-container {
+  border-bottom: 1px solid #021933;
 }
+
+.sidebar-parent-btn svg {
+  color: #ffa901;
+}
+
+.sidebar-parent-lable {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.sidebar-parent-lable svg {
+  margin-right: 15px !important;
+  font-size: 20px;
+}
+
+.sidebar-parent-btn {
+  color: #fff;
+  background: none;
+  border: none;
+  padding: 15px 20px;
+}
+
+.sidebar-submenu {
+  color: #a3aab3;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0 35px 0 50px; 
+  background-color: #051f3e;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.8s ease, opacity 0.8s ease, padding 0.5s ease;
+}
+
+.sidebar-submenu.open {
+  max-height: 500px; 
+  opacity: 1;
+  padding: 20px 0px ;
+}
+
 
 .sidebar-nav a {
   color: #d1d5db;
   text-decoration: none;
   display: block;
-  padding: 8px 12px;
   border-radius: 6px;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.8s ease, color 0.8s ease;
+}
+.sidebar-submenu li{
+  padding: 0px 20px 0px 50px;
 }
 
-.sidebar-nav a:hover {
-  background: #1f2937;
-  color: #fff;
-}
-
-.active-link {
-  background: #2563eb;
-  color: white;
+.sidebar-nav .active-item {
+  background-color: #042954;
+  color: #ffa901;
   font-weight: 600;
+  padding: 10px 20px 10px 50px;
+  transition: background 0.3s;
 }
+.sidebar-nav .active-item a{
+  color: #ffa901;
+}
+
+.sidebar-submenu li:hover a {
+  color: #ffa901;
+}
+
+
+.admin-sidebar {
+  margin-top: -70px;
+}
+.sidebar-parent-btn svg {
+  transition: transform 0.5s ease;
+}
+.sidebar-parent-btn .rotate-90 {
+  transform: rotate(90deg);
+}
+
 
 /* admin pages */
-.main-page{
-    width: 80%;
-    margin-left: auto;
+.main-page {
+  width: 82%;
+  margin-left: auto;
 }
+
+
+/* Header */
+.Admin-header {
+  width: calc(100% - 18%);
+  margin-left: auto;
+  background-Color: #ffffff;
+  color: white;
+  padding: 10px 30px;
+  height: 70px;
+  box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon svg {
+  color: #bebebe;
+  font-size: 35px;
+}
+
+.admin-search {
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  background: transparent;
+  color: #111111;
+  font-size: 18px;
+}
+
