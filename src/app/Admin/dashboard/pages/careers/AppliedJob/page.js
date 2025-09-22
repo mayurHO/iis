@@ -51,9 +51,9 @@ export default function AppliedJob() {
       {viewingJob ? (
         <div className="p-3 border">
           <h3>Application Details</h3>
-          <p><b>Username:</b> {viewingJob.username}</p>
+          <p><b>Username:</b> {viewingJob.name}</p>
           <p><b>Email:</b> {viewingJob.email}</p>
-          <p><b>Applied For:</b> {viewingJob.job_title}</p>
+          <p><b>Applied For:</b> {viewingJob.position}</p>
           <p><b>Applied On:</b> {new Date(viewingJob.createdAt).toLocaleString()}</p>
           <button className="btn btn-secondary mt-2" onClick={handleBack}>
             Back to Listing

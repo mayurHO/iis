@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import '../../components/About/about_global.css';
+// import '@/app/styles/frontend/page.module.css';
+// import '@/app/styles/frontend/about_global.css';
 import './footer.css';
 import Link from 'next/link';
 const Footer = () => {

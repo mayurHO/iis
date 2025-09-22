@@ -73,7 +73,7 @@ body {
 
 
 .subtitle {
-    font-family: 'AirbnbCereal_W_Md' , sans-serif;;
+    font-family: 'AirbnbCereal' , sans-serif;;
     font-weight: 400;
     font-size: 13px;
     line-height: 100%;
@@ -97,7 +97,7 @@ h2.section-heading {
 }
 
 span.blue-heading {
-    font-family: 'AirbnbCereal_W_Md', sans-serif;
+    font-family: 'AirbnbCereal', sans-serif;
     font-weight: 500;
     font-size: 27px;
     line-height: 37px;
@@ -106,7 +106,7 @@ span.blue-heading {
 }
 
 p {
-    font-family: 'AirbnbCereal_W_Bk', sans-serif;
+    font-family: 'AirbnbCereal', sans-serif;
     font-weight: 400;
     font-size: 15px;
     line-height: 25px;

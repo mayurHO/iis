@@ -13,6 +13,7 @@ const queryClient = new QueryClient();
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+
       <body>
         <QueryClientProvider client={queryClient}>
           <Header />

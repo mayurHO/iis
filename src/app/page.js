@@ -11,11 +11,11 @@ import CareerInner from './frontend/components/careers/Career-inner';
 
 export default function Home() {
   return (
-    <>
+    <div className='career-page'>
     <CareersBanner />
     <JobCategory />
     <HowWork />
     <CareerInner />
-    </>
+    </div>
   );
 }
