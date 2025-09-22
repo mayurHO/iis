@@ -10,9 +10,9 @@ export default function AppliedJob() {
 
   const tableHeadings = [
     { key: "id", label: "ID" },
-    { key: "username", label: "Username" },
+    { key: "name", label: "Name" },
     { key: "email", label: "Email" },
-    { key: "job_title", label: "Job Title" },
+    { key: "position", label: "Position" },
     { key: "createdAt", label: "Applied On" },
   ];
 
@@ -20,7 +20,7 @@ export default function AppliedJob() {
   const fetchJobs = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/admin/ActionApi/Carrier/AppliedJob");
+      const res = await fetch("/Admin/ActionApi/Carrier/AppliedJob");
       const data = await res.json();
       if (data.success) setJobs(data.data);
     } catch (err) {

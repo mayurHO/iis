@@ -109,10 +109,12 @@
 
 /* admin pages */
 .main-page {
+  padding: 30px 50px 20px;
+  background: #f0f1f3;
   width: 82%;
   margin-left: auto;
+  min-height: 100vh;  
 }
-
 
 /* Header */
 .Admin-header {
@@ -138,4 +140,92 @@
   color: #111111;
   font-size: 18px;
 }
+
+
+
+/* Editor css */
+.editor-toolbar button{
+  border: none !important;
+  width: 35px;
+}
+.editor-toolbar .link-add{
+  z-index: 99999;
+}
+.editor-toolbar .link-add button{
+   width: 60px !important;
+}
+.text-editor .tiptap{
+  min-height: 200px;
+}
+
+/* Listing page */
+.hirachy-tag {
+  font-family: "AirbnbCereal", sans-serif;
+  font-weight: 400;
+  color:#042954;
+  font-size: 15px;
+  text-decoration: underline;
+}
+.hirachy-tag:hover {
+  color:#06192f;
+}
+
+.Listing-heading {
+  font-family: "AirbnbCereal", sans-serif;
+  font-weight: 500;
+  color: #111111;
+  font-size: 22px;
+}
+
+.listing-main table tbody td ,th{
+  padding: 5px 10px;
+}
+
+.listing-main{
+  box-shadow: 0px 10px 20px 0px rgba(229, 229, 229, 0.75);
+  padding: 30px;
+  min-height: 300px;
+  background: #FFF;
+  border-radius: 5px;
+}
+.action-buttons button {
+  height: 30px;
+    width: auto;
+    background: none;
+    padding-right: 10px;
+}
+.heading-row {
+  background-color: #f3f4f6;
+  text-align: left;
+  padding: 10px;
+  border-bottom: 2px solid #e5e7eb;
+}
+.ellipsis {
+  white-space: nowrap;        
+  overflow: hidden;           
+  text-overflow: ellipsis;  
+  max-width: 300px;      
+}
+.page-item.active a{
+  background-color: #ffc107;
+  border:1px solid #dee2e6;
+  box-shadow: none !important;
+}
+.page-item a{
+   box-shadow: none !important;
+}
+.action-buttons button:not(:last-child) {
+  position: relative;
+  padding-right: 10px;
+}
+.action-buttons button:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 25%;        
+  height: 50%;     
+  border-right: 1px solid #878787;
+  border-radius: 10px;
+}
+
 

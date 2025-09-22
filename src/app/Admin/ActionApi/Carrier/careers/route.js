@@ -2,7 +2,6 @@
 import JobController from "@/backend/controllers/Admin/AddJobController";
 import { uploadSingleImage } from "@/backend/middleware/uploadMiddleware";
 import { getAll } from "@backend/controllers/Admin/AddJobController";
-import { initDB } from "@/utils/initDB";
 
 // CREATE (Add Job)
 export async function POST(req) {
@@ -21,7 +20,6 @@ export async function POST(req) {
 
 // READ (Fetch All Jobs)
 export async function GET(req) {
-  initDB();
   return getAll(req);
 }
 

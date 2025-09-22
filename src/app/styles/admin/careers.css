@@ -1,24 +1,43 @@
-/* Listing page */
-.listing-main{
-  box-shadow: 0px 10px 20px 0px rgba(229, 229, 229, 0.75);
-  padding: 30px;
-  min-height: 300px;
-  
-}
-.action-buttons button {
-  height: 31px;
-    width: 30px;
-    background: none;
-}
-.heading-row {
-  background-color: #f3f4f6;
-  text-align: left;
-  padding: 10px;
-  border-bottom: 2px solid #e5e7eb;
-}
-
 /* Careers form */
 .container{
   box-shadow: 0px 10px 20px 0px rgba(229, 229, 229, 0.75);
   padding: 30px;
+  background: #FFF;
+  border-radius: 5px;
+}
+.form-card {
+  width: 70%;
+}
+.form-card input{
+    border-radius: 5px;
+    height: 45px;
+    background-color: #f0f1f3;
+    border: none; 
+}
+.form-card label{
+  color:#646464 !important;
+  font-size: 15px;
+  font-weight: 500;
+}
+.form-card input:focus {
+   background-color: #f0f1f3;
+   box-shadow: none;
+}
+.button-container{
+  width: 25%;
+  background-color: #627474;
+  padding: 10px;
+  height: fit-content ;
+  border-radius: 10px;
+}
+.job-image{
+   width: 150px;
+   height: 100px; 
+   cursor: pointer;
+   border: 1px dashed;
+}
+.job-image img{
+    width: 26px;
+    height: 26px;
+    font-size: 15px;
 }

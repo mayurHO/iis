@@ -43,24 +43,3 @@
   font-display: swap;
 }
 
-.main-page {
-  padding: 30px 50px 20px;
-}
-
-.hirachy-tag {
-  font-family: "AirbnbCereal", sans-serif;
-  font-weight: 400;
-  color:#042954;
-  font-size: 15px;
-  text-decoration: underline;
-}
-.hirachy-tag:hover {
-  color:#06192f;
-}
-
-.Listing-heading {
-  font-family: "AirbnbCereal", sans-serif;
-  font-weight: 500;
-  color: #111111;
-  font-size: 22px;
-}

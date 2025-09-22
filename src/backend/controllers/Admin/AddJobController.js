@@ -93,15 +93,18 @@ export async function getAll(req) {
 /*------------------------------------------------------------
   ## Fetch all Applied Job
 ------------------------------------------------------------*/
-
 export async function getAppliedJob() {
   try {
     const appliedJobs = await Apply.findAll({
       order: [["createdAt", "DESC"]],
     });
-    return appliedJobs;
+
+    return new Response(JSON.stringify({ success: true, data: appliedJobs }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
   } catch (err) {
     console.error("Error fetching applied jobs:", err);
-    throw new Error(err.message);
+    return new Response(JSON.stringify({ success: false, error: err.message }), { status: 500 });
   }
 }

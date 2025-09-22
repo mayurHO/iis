@@ -14,7 +14,7 @@ export default function AdminLoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("/admin/ActionApi/login", {
+      const res = await fetch("/Admin/ActionApi/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -25,7 +25,7 @@ export default function AdminLoginPage() {
       if (res.ok) {
         localStorage.setItem("isAdmin", "true");
         localStorage.setItem("token", data.token);
-        router.push("/admin/dashboard");
+        router.push("/Admin/dashboard");
       } else {
         setError(data.error || "Invalid credentials");
       }

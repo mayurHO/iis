@@ -32,8 +32,8 @@ const Sidebar = ({ onSelectMenu }) => {
       name: "Careers",
       icon: <MdWork />,
       children: [
-        { name: "Job Added", path: "/admin/dashboard/pages/careers" },
-        { name: "Applied Job", path: "/admin/dashboard/pages/careers/AppliedJob" },
+        { name: "Job Added", path: "/Admin/dashboard/pages/careers/AddJob" },
+        { name: "Applied Job", path: "/Admin/dashboard/pages/careers/AppliedJob" },
       ],
     },
     {

@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Header from "@/app/admin/Components/layout/AdminHeader";
-import Sidebar from "@/app/admin/Components/layout/Siderbar";
+import Header from "@/app/Admin/Components/layout/AdminHeader";
+import Sidebar from "@/app/Admin/Components/layout/Siderbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/app/styles/admin/admin.css";
 import "@/app/styles/admin/global.css";
@@ -33,7 +33,7 @@ export default function AdminLayout({ children }) {
       <div className="flex-grow-1 d-flex">
       <Sidebar className="col-3" onSelectMenu={setSelectedMenu} />
         <main className="main-page">
-        <h2 className="mb-1 hirachy-tag">{selectedMenu}</h2>
+        <h2 className="mb-3 hirachy-tag">{selectedMenu}</h2>
           {children}
           </main>
       </div>

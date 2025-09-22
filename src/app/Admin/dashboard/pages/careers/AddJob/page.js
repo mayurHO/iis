@@ -1,15 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import JobListing from "../../../Components/common/Listingpage";
-import CareerAdd from "../../../Components/careers/CareerAdd";
-
+import React, { useState, useEffect } from "react";
+import JobListing from "../../../../Components/common/Listingpage";
+import CareerAdd from "../../../../Components/careers/CareerAdd";
+import ViewJob from "../../../../Components/common/ViewModal"; 
+import "@/app/styles/admin/careers.css";
+import { errorToast } from "@/utils/Toast";
 
 export default function AddJob() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [editingJob, setEditingJob] = useState(null);
   const [showAdd, setShowAdd] = useState(false);
+  const [viewJob, setViewJob] = useState(null); 
 
   const tableHeadings = [
     { key: "id", label: "ID" },
@@ -18,15 +21,15 @@ export default function AddJob() {
     { key: "description", label: "Description" },
   ];
 
-  // Fetch jobs
   const fetchJobs = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/admin/ActionApi/Carrier/careers");
+      const res = await fetch("/Admin/ActionApi/Carrier/careers");
       const data = await res.json();
       if (data.success) setJobs(data.jobs);
     } catch (err) {
-      console.error("Error fetching jobs:", err);
+      console.error(err);
+      errorToast("Error fetching jobs.");
     } finally {
       setLoading(false);
     }
@@ -36,47 +39,37 @@ export default function AddJob() {
     fetchJobs();
   }, []);
 
-  // View job
-  const handleView = (job) => {
-    alert(`Viewing job: ${job.title}`);
-  };
-
-  // Edit job
+  const handleView = (job) => setViewJob(job); // show view component
   const handleEdit = (job) => {
     setEditingJob(job);
     setShowAdd(true);
   };
-
-  // Delete job
   const handleDelete = async (id) => {
-    if (!confirm("Are you sure you want to delete this job?")) return;
     try {
-      const res = await fetch(`/admin/ActionApi/Carrier/${id}`, { method: "DELETE" });
+      const res = await fetch(`/Admin/ActionApi/Carrier/${id}`, {
+        method: "DELETE",
+      });
       const data = await res.json();
-      if (res.ok) {
-        alert(data.message || "Job deleted successfully!");
-        fetchJobs();
-      } else {
-        alert(data.error || "Failed to delete job.");
-      }
+      if (!res.ok) errorToast(data.error || "Failed to delete job.");
+      else fetchJobs();
     } catch (err) {
-      console.error("Delete error:", err);
-      alert("Something went wrong.");
+      console.error(err);
+      errorToast("Something went wrong while deleting job.");
     }
   };
-
-  // Back to listing
-  const handleBack = () => {
+  const handleBackFromView = () => setViewJob(null); // go back to listing
+  const handleBackFromAdd = () => {
     setShowAdd(false);
     setEditingJob(null);
-    fetchJobs(); 
-
+    fetchJobs();
   };
 
   return (
     <>
       {showAdd ? (
-        <CareerAdd job={editingJob} onBack={handleBack} />
+        <CareerAdd job={editingJob} onBack={handleBackFromAdd} />
+      ) : viewJob ? (
+        <ViewJob job={viewJob} onBack={handleBackFromView} />
       ) : loading ? (
         <div>Loading jobs...</div>
       ) : (
