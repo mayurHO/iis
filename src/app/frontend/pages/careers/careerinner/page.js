@@ -1,23 +1,45 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { MdStar } from "react-icons/md";
-import Apply from "./Apply";
+import { useSearchParams } from "next/navigation";
+import "@/app/styles/frontend/careers.css";
+import Apply from "@/app/frontend/components/careers/Apply";
+import Button from "@/app/frontend/components/common/Button";
 
 export default function CareerInner() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const location = searchParams.get("location") || "";
+  const jobTypeFromUrl = searchParams.get("JobType") || "";
+  const keyword = searchParams.get("keyword") || "";
+
   const [activeTab, setActiveTab] = useState("all");
-  const [selectedJob, setSelectedJob] = useState(null); 
+  const [selectedJob, setSelectedJob] = useState(null);
+
+  // Auto-select tab from URL JobType
+  useEffect(() => {
+    if (jobTypeFromUrl) {
+      setActiveTab(jobTypeFromUrl);
+    }
+  }, [jobTypeFromUrl]);
 
   const fetchJobs = async ({ queryKey }) => {
-    const [_key, tab] = queryKey;
-    let url = "/frontend/ActionApi/career";
+    const [_key, tab, location, keyword] = queryKey;
+    let url = "/frontend/ActionApi/career?status=active";
 
+    // Apply tab filter
     if (tab === "recent") {
-      url += "?recent=5";
+      url += "&recent=5";
     } else if (tab !== "all") {
-      url += `?type=${tab}`;
+      url += `&type=${encodeURIComponent(tab)}`;
     }
+
+    // Always apply location + keyword filter if present
+    if (location) url += `&location=${encodeURIComponent(location)}`;
+    if (keyword) url += `&keyword=${encodeURIComponent(keyword)}`;
 
     const res = await fetch(url);
     if (!res.ok) throw new Error("Failed to fetch jobs");
@@ -25,7 +47,7 @@ export default function CareerInner() {
   };
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["jobs", activeTab], 
+    queryKey: ["jobs", activeTab, location, keyword],
     queryFn: fetchJobs,
     keepPreviousData: true,
   });
@@ -44,14 +66,20 @@ export default function CareerInner() {
     <div className="career-inner tb-space">
       <div className="side-space">
         <h2 className="section-heading text-center">New & Random Jobs</h2>
-        <p className="subtitle text-center">Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
+        <p className="subtitle text-center">
+          Post a job to tell us about your project. We'll quickly match you with
+          the right freelancers.
+        </p>
+
         {/* Tabs */}
         <div className="job-tabs-container d-flex justify-content-center mb-5">
           <div className="job-tabs-row d-flex gap-3">
             {tabs.map((tab) => (
               <button
                 key={tab.value}
-                className={`job-tab flex-shrink-0 ${activeTab === tab.value ? "active" : ""}`}
+                className={`job-tab flex-shrink-0 ${
+                  activeTab === tab.value ? "active" : ""
+                }`}
                 onClick={() => setActiveTab(tab.value)}
               >
                 {tab.label}
@@ -64,6 +92,10 @@ export default function CareerInner() {
         <div className="job-list">
           {error ? (
             <p>Error loading jobs</p>
+          ) : isLoading ? (
+            <p>Loading jobs...</p>
+          ) : jobsData.length === 0 ? (
+            <p>No jobs found.</p>
           ) : (
             jobsData.map((job) => (
               <div key={job.id} className="job-item-wrapper mb-4 ms-5 me-5">
@@ -80,34 +112,34 @@ export default function CareerInner() {
                   />
                   <div className="text-center">
                     <h4 className="job-title">{job.title}</h4>
-                    <p className="job-experience">{job.experience} +experience</p>
+                    <p className="job-experience">
+                      {job.experience} +experience
+                    </p>
                   </div>
                   <div className="text-center job-type-container">
                     <p className="job-type">{job.type}</p>
-                    <div className="job-desc" dangerouslySetInnerHTML={{ __html: job.description }}/>
-
+                    <div
+                      className="job-desc"
+                      dangerouslySetInnerHTML={{ __html: job.description }}
+                    />
                   </div>
-                  <button
-                    className="apply-btn"
+                  <Button
+                    label="Apply Now"
                     onClick={() => setSelectedJob(job)}
-                  >
-                    Apply Now
-                  </button>
+                  />
                 </div>
                 <div className="w-100 mt-2 d-flex justify-content-between align-items-center px-4">
                   <p className="job-location">
                     Job Location : <span>{job.location}</span>
                   </p>
-                  <p className="more-info flex-shrink-0">
-                    <a
-                      href={job.moreInfo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {" "}
-                      More info &gt;&gt;{" "}
-                    </a>
-                  </p>
+<p className="more-info flex-shrink-0">
+  <span
+    className="cursor-pointer text-primary"
+    onClick={() => router.push(`/frontend/pages/careers/singlejob/${job.id}`)}
+  >
+    More info &gt;&gt;
+  </span>
+</p>
                 </div>
               </div>
             ))

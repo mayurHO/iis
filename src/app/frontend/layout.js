@@ -4,9 +4,9 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
-
 import Header from "@/app/frontend/components/layout/Header/header";
 import Footer from "@/app/frontend/components/layout/Footer/footer";
+
 
 const queryClient = new QueryClient();
 

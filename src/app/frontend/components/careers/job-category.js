@@ -1,5 +1,16 @@
+"use client";
 import React from "react";
-import { FaLaptopCode, FaMicrochip, FaLandmark, FaMoneyBillWave, FaBuilding, FaPhone, FaPalette, FaUserTie } from "react-icons/fa";
+import { useRouter } from "next/navigation";
+import {
+  FaLaptopCode,
+  FaMicrochip,
+  FaLandmark,
+  FaMoneyBillWave,
+  FaBuilding,
+  FaPhone,
+  FaPalette,
+  FaUserTie,
+} from "react-icons/fa";
 
 const categories = [
   { name: "IT & Software", icon: <FaLaptopCode size={50} /> },
@@ -13,6 +24,16 @@ const categories = [
 ];
 
 function JobCategory() {
+  const router = useRouter();
+
+  const handleClick = (categoryName) => {
+    router.push(
+      `/frontend/pages/careers/careerinner?category=${encodeURIComponent(
+        categoryName
+      )}`
+    );
+  };
+
   return (
     <div className="job-section tb-space side-space d-flex align-items-center flex-column">
       <h2 className="section-heading mb-2">Popular Jobs Category</h2>
@@ -22,7 +43,12 @@ function JobCategory() {
 
       <div className="job-category-container row m-0 d-flex justify-content-center align-items-center">
         {categories.map((cat, idx) => (
-          <div key={idx} className="col-md-3 d-flex justify-content-center flex-column align-items-center">
+          <div
+            key={idx}
+            className="col-md-3 d-flex justify-content-center flex-column align-items-center job-category"
+            onClick={() => handleClick(cat.name)}
+            style={{ cursor: "pointer" }}
+          >
             <div className="mb-0 category-image">{cat.icon}</div>
             <h4 className="heading mb-0 mt-3">{cat.name}</h4>
             <span className="subtitle mt-1 mb-5">learn more about</span>

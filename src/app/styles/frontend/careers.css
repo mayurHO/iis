@@ -1,17 +1,18 @@
 .career-page .careers-banner {
   display: flex;
-  background: rgb(216, 232, 255);
+  background: #f0effd;
   gap: 60px;
-  padding: 100px 100px;
+  padding: 50px 100px;
 }
 
 .career-page .img-banner {
   width: 100%;
-  height: 100%;
+  height: 450px;
   border-radius: 50px;
 }
 .career-page .banner-image {
   position: relative;
+  margin-top: -20px;
 }
 
 .career-page .banner-content h1 span {
@@ -73,36 +74,41 @@
 
 .career-page .count-img {
   position: absolute;
-  right: 20px;
-  bottom: -25px;
+  right: 0px;
+  bottom: 0px;
 }
 .career-page .count-img img {
   border-radius: 5px;
 }
 
-@media (max-width: 768px) {
-  .career-page .careers-banner {
-    padding: 20px 20px;
-  }
-  .career-page .b-uploadcv {
-    left: 0px;
-  }
+/* job category css */
+.job-category {
+  transition: all 0.5s ease;
 }
 
-
-/* job category css */
-.career-page .category-image{
+.job-category:hover {
+  transform: translateY(-8px);
+}
+.career-page .category-image {
   padding: 17px;
   background-color: #f2f0fe;
   border-radius: 8px;
 }
-.career-page .category-image svg{
-  color:#766df4 !important;
+.career-page .category-image svg {
+  color: #766df4 !important;
   height: 32px;
   width: 32px;
 }
 
-/* job process css */
+/* job process css  how work*/
+
+.how-work {
+  background: #f8f9fc;
+}
+
+.process-container {
+  width: 45% !important;
+}
 
 .career-page .process-step {
   position: relative;
@@ -133,62 +139,64 @@
 }
 
 /* Job inner */
-.career-page .job-inner {
+.job-inner {
   background-color: rgb(248 249 252);
+  background: #f8f9fc;
 }
-.career-page .job-tabs-row {
+.job-tabs-row {
   background: #fff;
   padding: 10px;
   box-shadow: 0px 3px 10px 0px rgba(40, 48, 57, 0.08);
   border-radius: 8px;
 }
 
-.career-page .job-tab {
-  font-family: "AirbnbCereal_W_Md", sans-serif;
-  border: none;
-  background: transparent;
-  font-size: 15px;
-  font-weight: 500;
-  color: #151515;
-  padding: 10px 18px;
-  border-radius: 10px;
-  cursor: pointer;
+.job-tab {
+    color: #151515;
+    cursor: pointer;
+    background: none;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-family: 'AirbnbCereal', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
 }
-.career-page .job-tab.active {
+.job-tab.active {
   background: #037ec4;
   color: #fff;
 }
-.career-page .job-item {
+.job-item {
   background: #ffff;
   padding: 15px 20px;
   box-shadow: 0 3px 10px rgba(40, 48, 57, 0.08);
   margin-bottom: 10px;
   border-radius: 10px;
 }
-.career-page .job-item-wrapper {
+.job-item-wrapper {
   border: 1px solid #eff0f2;
+  transition: all 0.5s ease;
   border-radius: 4px;
   position: relative;
   overflow: hidden;
 }
 
-.career-page .job-item-wrapper:hover {
-  border: 1px solid #037ec4;
+.job-item-wrapper:hover {
+  border: 1px solid #766df4;
   box-shadow: 0 3px 10px rgba(40, 48, 57, 0.08);
-  transition: all 0.3s ease-in-out;
+  transform: translateY(-8px);
 }
 
-.career-page .job-item h4,
-.career-page .job-item p {
+ .job-item h4,
+.job-item p {
   margin: 0;
 }
 
-.career-page .job-item img {
+.job-item .job-img {
   border-radius: 10px;
   margin-left: 50px;
 }
 
-.career-page .job-desc {
+.job-desc {
   width: 500px;
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -196,20 +204,20 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.career-page .job-location {
+.job-location {
   font-weight: 600;
   color: #272f38;
 }
-.career-page .job-location span {
+.job-location span {
   font-weight: 500;
 }
-.career-page .more-info {
+.more-info {
   cursor: pointer;
 }
-.career-page .more-info:hover {
+ .more-info:hover {
   color: #766df4;
 }
-.career-page .star-icon {
+ .star-icon {
   font-size: 18px;
   position: absolute;
   top: -7px;
@@ -222,13 +230,43 @@
   justify-content: center;
   align-items: center;
 }
-.career-page .star-icon svg {
+ .star-icon svg {
   color: #fff;
   font-size: 22px;
   margin-top: 7px;
 }
 
-.career-page .career-inner .modal-overlay {
+/* Apply form css */
+.apply-form-container form {
+  width: 70%;
+}
+.apply-form-container form input {
+  border-radius: 5px;
+  height: 45px;
+  background-color: #f0f1f3;
+  border: none;
+}
+.apply-form-container form label {
+  color: #646464 !important;
+  font-size: 15px;
+  font-weight: 500;
+}
+.apply-form-container form input:focus {
+  background-color: #f0f1f3;
+  box-shadow: none;
+}
+.apply-form-container .form-check input {
+  width: 20px !important;
+  height: 20px !important;
+}
+.Listing-heading {
+  font-family: "AirbnbCereal", sans-serif;
+  font-weight: 500;
+  color: #111111;
+  font-size: 22px;
+}
+
+ .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -240,22 +278,108 @@
   justify-content: center;
   z-index: 9999;
 }
-.career-page .career-inner .modal-content {
+.modal-content {
   background: #fff;
   padding: 2rem;
   border-radius: 8px;
   width: 90%;
-  max-width: 600px;
+  max-width: 900px;
   position: relative;
   max-height: 90vh;
   overflow-y: auto;
 }
-.career-page .career-inner .modal-close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 2rem;
-  border: none;
-  background: transparent;
+ .modal-close {
   cursor: pointer;
+  border: none;
+  font-size: 25px;
+  position: absolute;
+  top: 9px;
+  right: 15px;
+  background: #eb0c0c80;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+.apply-btn {
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 500;
+  background: #766df4;
+  color: #fff;
+}
+.apply-btn:hover{
+  background: #6c65ce;
+}
+
+
+@media (max-width: 768px) {
+  /* banner css */
+
+  .career-page .careers-banner {
+    padding: 20px 20px;
+    gap:40px;
+  }
+  .career-page .b-uploadcv {
+    left: 0px;
+  }
+   .career-page .job-experience{
+    text-align: left;
+  }
+  .career-page .job-desc{
+    line-height: normal;
+  }
+  .career-page .banner-image {
+    margin-top: 0px;
+}
+.career-page .img-banner {
+    height: auto;
+}
+
+  /* how work */
+  .process-container {
+    width: 100% !important;
+  }
+  .work-img-container img {
+    width: -webkit-fill-available;
+    height: auto;
+  }
+
+  /* inner section */
+   .job-tabs-row {
+    overflow: overlay;
+  }
+  .job-item {
+    flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    gap: 10px;
+  }
+  .job-item img {
+    margin: auto !important;
+  }
+  .job-type-container p {
+    width: fit-content;
+  }
+  .job-desc {
+    -webkit-line-clamp: 2;
+    width: auto;
+    text-align: start;
+  }
+  .career-page .job-item-wrapper{
+    margin: 0 0 20px 0 !important;
+  }
+ 
+}
+
+@media (min-width: 769px) and (max-width:1024px) {
+
+  /* career inner */
+ .job-desc {
+    width: 300px;
+}
 }

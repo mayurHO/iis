@@ -75,7 +75,7 @@ const Sidebar = ({ onSelectMenu }) => {
     <aside className="admin-sidebar position-fixed">
       <div className="sidebar-header">
         <Image
-          src="/images/career/iis-logo.png"
+          src="/images/career/iis-logo.webp"
           alt="iis-logo"
           height={40}
           width={40}

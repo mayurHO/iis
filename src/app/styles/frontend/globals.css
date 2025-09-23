@@ -1,210 +1,182 @@
 /* Medium */
 @font-face {
-    font-family: "AirbnbCereal";
-    src: url("/font/AirbnbCereal_W_Md.otf") format("opentype");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  /* Book */
-  @font-face {
-    font-family: "AirbnbCereal";
-    src: url("/font/AirbnbCereal_W_Bk.otf") format("opentype");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  /* Bold */
-  @font-face {
-    font-family: "AirbnbCereal";
-    src: url("/font/AirbnbCereal_W_Bd.otf") format("opentype");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  /* Black */
-  @font-face {
-    font-family: "AirbnbCereal";
-    src: url("/font/AirbnbCereal_W_Blk.otf") format("opentype");
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  /* Light */
-  @font-face {
-    font-family: "AirbnbCereal";
-    src: url("/font/AirbnbCereal_W_Lt.otf") format("opentype");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-  }
-  
+  font-family: "AirbnbCereal";
+  src: url("/font/AirbnbCereal_W_Md.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Book */
+@font-face {
+  font-family: "AirbnbCereal";
+  src: url("/font/AirbnbCereal_W_Bk.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold */
+@font-face {
+  font-family: "AirbnbCereal";
+  src: url("/font/AirbnbCereal_W_Bd.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Black */
+@font-face {
+  font-family: "AirbnbCereal";
+  src: url("/font/AirbnbCereal_W_Blk.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Light */
+@font-face {
+  font-family: "AirbnbCereal";
+  src: url("/font/AirbnbCereal_W_Lt.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
 
 body {
-    overflow-y: auto !important;
+  overflow-y: auto !important;
 }
 
 :root {
-    --bg-btn-color: #2F357F;
-    --heading-color: #151515;
-    --small-heading-color: #037EC4;
-    --white-color: #fff;
+  --bg-btn-color: #2f357f;
+  --heading-color: #151515;
+  --small-heading-color: #037ec4;
+  --white-color: #fff;
 }
 
 .side-space {
-    padding-left: 20px;
-    padding-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
-.tb-space{
-    padding-top: 50px;
-    padding-bottom: 50px;
+.tb-space {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 .t-space {
-    padding-top: 101px;
+  padding-top: 101px;
 }
 
 .b-space {
-    padding-bottom: 101px;
+  padding-bottom: 101px;
 }
 
-
 .subtitle {
-    font-family: 'AirbnbCereal' , sans-serif;;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 100%;
-    color:#151515;
+  font-family: "AirbnbCereal", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 100%;
+  color: #151515;
+  line-height: 18px;
+  text-align: center;
+  width: 40%;
+  margin: 0 auto 25px auto;
 }
 
 h1 {
-  font-family: 'AirbnbCereal', sans-serif;
+  font-family: "AirbnbCereal", sans-serif;
   font-weight: 600 !important;
   font-size: 45px !important;
-  line-height: 60px !important;
+  line-height: 55px !important;
 }
 
 h2.section-heading {
-   font-family: 'AirbnbCereal', sans-serif;
-    font-weight: 600;
-    font-size: 37px;
-    line-height: 47px;
-    letter-spacing: 0%;
-    color: #151515;
+  font-family: "AirbnbCereal", sans-serif;
+  font-weight: 500;
+  font-size: 37px;
+  line-height: 47px;
+  letter-spacing: 0%;
+  color: #151515;
 }
 
 span.blue-heading {
-    font-family: 'AirbnbCereal', sans-serif;
-    font-weight: 500;
-    font-size: 27px;
-    line-height: 37px;
-    letter-spacing: 0%;
-    color: #037EC4;
+  font-family: "AirbnbCereal", sans-serif;
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 37px;
+  letter-spacing: 0%;
+  color: #037ec4;
 }
 
 p {
-    font-family: 'AirbnbCereal', sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 25px;
-    letter-spacing: 0%;
-    color: #151515;
+  font-family: "AirbnbCereal", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 25px;
+  letter-spacing: 0%;
+  color: #151515;
 }
-h4.heading{
-    font-family: 'AirbnbCereal', sans-serif;
-    font-weight: 600;
+h4.heading {
+  font-family: "AirbnbCereal", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 0%;
+  color: #151515;
+}
+
+@media (max-width: 768px) {
+  .t-space {
+    padding-top: 30px;
+  }
+
+  .b-space {
+    padding-bottom: 30px;
+  }
+  h4.blue-heading {
     font-size: 18px;
-    line-height: 25px;
-    letter-spacing: 0%;
-    color: #151515;
+    line-height: 24px;
+  }
+  h2.section-heading {
+    font-size: 28px !important;
+    line-height: 35px !important;
+  }
+  .subtitle {
+    width: 100%;
+  }
 }
 
-@media(max-width:768px) {
-    .t-space {
-        padding-top: 30px;
-    }
+@media (min-width: 769px) and (max-width: 991px) {
+  .t-space {
+    padding-top: 50px;
+  }
 
-    .b-space {
-        padding-bottom: 30px;
-    }
-
-    h2 {
-        font-size: 28px;
-        line-height: 34px;
-    }
-
-    h4.blue-heading {
-        font-size: 18px;
-        line-height: 24px;
-    }
+  .b-space {
+    padding-bottom: 50px;
+  }
 }
 
-@media(min-width:769px) and (max-width:991px) {
-    .t-space {
-        padding-top: 50px;
-    }
+@media (min-width: 992px) and (max-width: 1024px) {
+  .t-space {
+    padding-top: 80px;
+  }
 
-    .b-space {
-        padding-bottom: 50px;
-    }
-
+  .b-space {
+    padding-bottom: 80px;
+  }
 }
+@media (min-width: 769px) and (max-width: 1024px) {
+  h2 {
+    font-size: 30px;
+    line-height: 36px;
+  }
 
-@media(min-width:992px) and (max-width:1024px) {
-    .t-space {
-        padding-top: 80px;
-    }
-
-    .b-space {
-        padding-bottom: 80px;
-    }
+  h4.blue-heading {
+    font-size: 22px;
+    line-height: 30px;
+  }
+    .subtitle {
+    width: 50%;
+  }
 }
-@media(min-width:769px) and (max-width:1024px) {
-    h2 {
-        font-size: 30px;
-        line-height: 36px;
-    }
-
-    h4.blue-heading {
-        font-size: 22px;
-        line-height: 30px;
-    }
-}
-
-
 
 /* commom button css */
-.common-btn {
-    background: var(--bg-btn-color);
-    color: var(--white-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-.common-btn:hover {
-    background: var(--bg-btn-color);
-    color: var(--white-color);
-    flex-direction: row-reverse;
-
-}
-
-.common-btn div {
-    background-color: #fff;
-    border-radius: 5px;
-}
-
-.common-btn:hover div {
-    float: right;
-    transform: translateX(10px);
-    transition: all 0.5s ease-in-out;
-}
-
-.common-btn:hover .arrow-small-right {
-    rotate: 45deg;
-
-}

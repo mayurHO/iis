@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import JobListing from "../../../../Components/common/Listingpage";
 import CareerAdd from "../../../../Components/careers/CareerAdd";
 import ViewJob from "../../../../Components/common/ViewModal"; 
@@ -8,6 +9,7 @@ import "@/app/styles/admin/careers.css";
 import { errorToast } from "@/utils/Toast";
 
 export default function AddJob() {
+  const router = useRouter();
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [editingJob, setEditingJob] = useState(null);
@@ -39,7 +41,10 @@ export default function AddJob() {
     fetchJobs();
   }, []);
 
-  const handleView = (job) => setViewJob(job); // show view component
+ const handleView = (job) => {
+  router.push(`/frontend/pages/careers/singlejob/${job.id}`);
+}; // show view component
+
   const handleEdit = (job) => {
     setEditingJob(job);
     setShowAdd(true);
@@ -64,35 +69,34 @@ export default function AddJob() {
     fetchJobs();
   };
 
-  return (
-    <>
-      {showAdd ? (
-        <CareerAdd job={editingJob} onBack={handleBackFromAdd} />
-      ) : viewJob ? (
-        <ViewJob job={viewJob} onBack={handleBackFromView} />
-      ) : loading ? (
-        <div>Loading jobs...</div>
-      ) : (
-        <JobListing
-          title="All Job Data"
-          actionButton={
-            <button
-              className="btn btn-warning flex-shrink-0"
-              onClick={() => {
-                setEditingJob(null);
-                setShowAdd(true);
-              }}
-            >
-              Add Job +
-            </button>
-          }
-          jobs={jobs}
-          headings={tableHeadings}
-          onView={handleView}
-          onEdit={handleEdit}
-          onDelete={handleDelete}
-        />
-      )}
-    </>
-  );
+ return (
+  <>
+    {showAdd ? (
+      <CareerAdd job={editingJob} onBack={handleBackFromAdd} />
+    ) : loading ? (
+      <div>Loading jobs...</div>
+    ) : (
+      <JobListing
+        title="All Job Data"
+        actionButton={
+          <button
+            className="btn btn-warning flex-shrink-0"
+            onClick={() => {
+              setEditingJob(null);
+              setShowAdd(true);
+            }}
+          >
+            Add Job +
+          </button>
+        }
+        jobs={jobs}
+        headings={tableHeadings}
+        onView={handleView}   // will redirect now
+        onEdit={handleEdit}
+        onDelete={handleDelete}
+      />
+    )}
+  </>
+);
+
 }

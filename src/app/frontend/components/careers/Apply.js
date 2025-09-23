@@ -50,22 +50,22 @@ export default function Apply({ job }) {
 
   return (
     <div className="apply-form-container p-4 pt-0">
-      <h2 className="mb-3">Apply Now</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className="mb-3 Listing-heading">Apply Now</h2>
+      <form onSubmit={handleSubmit} className="w-100 row">
         {/* Name */}
-        <div className="mb-3">
+        <div className="mb-3 col-md-6">
           <label className="form-label">Name*</label>
           <input type="text" name="name" className="form-control" required />
         </div>
 
         {/* Email */}
-        <div className="mb-3">
+        <div className="mb-3 col-md-6">
           <label className="form-label">Email*</label>
           <input type="email" name="email" className="form-control" required />
         </div>
 
         {/* Position Apply */}
-        <div className="mb-3">
+        <div className="mb-3 col-md-6">
           <label className="form-label">Position Apply*</label>
           <input
             type="text"
@@ -77,7 +77,7 @@ export default function Apply({ job }) {
         </div>
 
         {/* Contact Number */}
-        <div className="mb-3">
+        <div className="mb-3 col-md-6">
           <label className="form-label">Contact Number*</label>
           <input type="tel" name="number" className="form-control" required />
         </div>
@@ -120,12 +120,12 @@ export default function Apply({ job }) {
         {/* Extra fields for experience */}
         {experienceType === "experience" && (
           <>
-            <div className="mb-3">
-              <label className="form-label">Last Employer8</label>
+            <div className="mb-3 col-md-6">
+              <label className="form-label">Last Employer</label>
               <input type="text" name="lastEmployer" className="form-control" />
             </div>
-            <div className="mb-3">
-              <label className="form-label">Years of Experience8</label>
+            <div className="mb-3 col-md-6">
+              <label className="form-label">Years of Experience</label>
               <input
                 type="number"
                 name="experienceYears"
@@ -143,7 +143,7 @@ export default function Apply({ job }) {
         </div>
 
         {/* Submit button */}
-        <button type="submit" className="btn btn-primary" disabled={loading}>
+        <button type="submit" className="btn btn-primary w-auto mx-auto" disabled={loading}>
           {loading ? "Submitting..." : "Submit Application"}
         </button>
 

@@ -5,13 +5,20 @@ import Apply from "../../models/Frontend/Apply";
   ## Fetch all jobs
 ------------------------------------------------------------*/
 
+import { Op } from "sequelize";
+
 export async function getAll(req) {
   try {
     const { searchParams } = new URL(req.url);
     const type = searchParams.get("type");      
-    const recent = searchParams.get("recent"); 
+    const recent = searchParams.get("recent");
+    const location = searchParams.get("location");
+    const keyword = searchParams.get("keyword");
 
-    const query = {};
+    const query = {
+      where: { status: "active" },
+      order: [["createdAt", "DESC"]],
+    };
     
     if (type && type !== "all") { 
       const typeMap = {
@@ -19,14 +26,25 @@ export async function getAll(req) {
         "Part Time": "Part Time",
         "Freelancer": "Freelancer",
       };
-      query.where = { type: typeMap[type] };
+      query.where.type = typeMap[type];
+    }
+
+    if (location) {
+      query.where.location = location;
+    }
+
+    if (keyword) {
+      query.where[Op.or] = [
+        { title: { [Op.like]: `%${keyword}%` } },
+        { description: { [Op.like]: `%${keyword}%` } },
+        { location: { [Op.like]: `%${keyword}%` } },
+        { type: { [Op.like]: `%${keyword}%` } },
+        { experience: { [Op.like]: `%${keyword}%` } },
+      ];
     }
 
     if (recent) {
       query.limit = parseInt(recent);
-      query.order = [["createdAt", "DESC"]];
-    } else {
-      query.order = [["createdAt", "DESC"]];
     }
 
     const jobs = await Job.findAll(query);
@@ -40,6 +58,7 @@ export async function getAll(req) {
     return new Response(JSON.stringify({ error: err.message }), { status: 500 });
   }
 }
+
 
 
 /*------------------------------------------------------------
@@ -59,4 +78,24 @@ export async function applyJob(data) {
     resume: data.resume,
   });
   return newApply;
+}
+
+/*------------------------------------------------------------
+  ## Fetch single job by ID
+------------------------------------------------------------*/
+export async function getJobById(id) {
+  try {
+    const job = await Job.findOne({
+      where: { id, status: "active" },
+    });
+
+    if (!job) {
+      return null;
+    }
+
+    return job;
+  } catch (err) {
+    console.error("Error fetching job by ID:", err);
+    throw err;
+  }
 }

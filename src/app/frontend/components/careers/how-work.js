@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function HowWork() {
     return (
-        <div className="d-flex flex-column flex-md-row gap-5 w-100 side-space">
+        <div className="d-flex flex-column flex-md-row justify-content-center gap-5 w-100 side-space tb-space how-work">
             <div className="process-container w-100 w-md-50">
                 <h2 className="section-heading">How It Work</h2>
                 <p className="mb-4">Post a job to tell us about your project. We'll quickly match you with the right freelancers.</p>
@@ -29,7 +29,7 @@ export default function HowWork() {
                     </div>
                 </div>
             </div>
-            <div className="work-img-container w-100 w-md-50">
+            <div className="work-img-container w-auto w-md-50">
                 <Image
                     src="/images/career/process-02.png"
                     alt="Banner Shape"

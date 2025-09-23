@@ -1,0 +1,50 @@
+/* Button.css */
+
+.common-btn {
+  background: var(--bg-btn-color) !important;
+  color: var(--white-color) !important;
+  display: inline-flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 15px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.common-btn div {
+  background-color: var(--white-color);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  transition: transform 0.4s ease, rotate 0.4s ease;
+}
+
+.common-btn .arrow-small-right {
+  transition: rotate 0.4s ease;
+}
+
+/* Hover effect */
+.common-btn:hover {
+  background: var(--bg-btn-color) !important;
+  color: var(--white-color) !important;
+}
+
+.common-btn:hover div {
+  transform: translateX(-90px);
+}
+
+.common-btn:hover span {
+  transform: translateX(32px);
+  position: relative;
+  transition: transform 0.4s ease;
+}
+
+.common-btn:hover .arrow-small-right {
+  rotate: 0deg; 
+}
