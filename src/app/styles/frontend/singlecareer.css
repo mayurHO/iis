@@ -32,3 +32,9 @@
     width: auto;
     margin-right: auto;
 }
+
+@media(max-width:767px){
+    .date-container{
+        flex-direction: column;
+    }
+}
